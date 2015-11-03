@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  RootViewController.m
 //  Timer Application
 //
 //  Created by Arthur Pan on 11/2/15.
 //  Copyright © 2015 Arthur Pan. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RootViewController.h"
 
-@interface ViewController ()
+@interface RootViewController ()
 
 @end
 
-@implementation ViewController
+@implementation RootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

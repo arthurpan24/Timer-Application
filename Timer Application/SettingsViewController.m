@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  SettingsViewController.m
 //  Timer Application
 //
 //  Created by Arthur Pan on 11/2/15.
 //  Copyright © 2015 Arthur Pan. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SettingsViewController.h"
 
-@interface ViewController ()
+@interface SettingsViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

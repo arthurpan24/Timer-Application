@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  ClockViewController.m
 //  Timer Application
 //
 //  Created by Arthur Pan on 11/2/15.
 //  Copyright © 2015 Arthur Pan. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ClockViewController.h"
 
-@interface ViewController ()
+@interface ClockViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ClockViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
