@@ -11,13 +11,18 @@
 @interface ClockViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *StartButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *HourButton;
 @property (weak, nonatomic) IBOutlet UIButton *MinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *SecondButton;
+
 @property (strong, nonatomic) IBOutlet UIView *ProgessBar;
+
 @property (weak, nonatomic) IBOutlet UILabel *HourLabel;
 @property (weak, nonatomic) IBOutlet UILabel *MinuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *SecondLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *InfoButton;
 
 @end
 
@@ -46,5 +51,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)badgeButtonPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/arthurpan24/Timer-Application"]];
+}
 
 @end
