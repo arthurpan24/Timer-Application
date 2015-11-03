@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Item 2 YOYOYO-->
+        <!--Settings-->
         <scene sceneID="Uxz-JU-MTS">
             <objects>
                 <viewController id="DjD-0i-RbK" sceneMemberID="viewController">
@@ -26,17 +26,17 @@
                         <animations/>
                         <color key="backgroundColor" red="0.17586016409999999" green="0.17586016409999999" blue="0.17586016409999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2 YOYOYO" id="X5D-Wc-bjw"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="X5D-Wc-bjw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdB-vr-A7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382.5" y="948.5"/>
+            <point key="canvasLocation" x="646.5" y="812.5"/>
         </scene>
-        <!--Item 1-->
+        <!--Clock-->
         <scene sceneID="lBG-ze-drz">
             <objects>
-                <viewController id="eq9-RQ-yKY" sceneMemberID="viewController">
+                <viewController id="eq9-RQ-yKY" customClass="ClockViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D69-ky-JE3"/>
                         <viewControllerLayoutGuide type="bottom" id="nyb-vU-D4x"/>
@@ -46,20 +46,72 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNQ-aU-cSa">
-                                <rect key="frame" x="176" y="180" width="41" height="30"/>
+                                <rect key="frame" x="0.0" y="505" width="375" height="113"/>
                                 <animations/>
-                                <state key="normal" title="Item 1"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
+                                <state key="normal" title="START"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q65-6J-L2A">
+                                <rect key="frame" x="254" y="126" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="H"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-7p-h9u">
+                                <rect key="frame" x="226" y="226" width="87" height="73"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <state key="normal" title="M"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agg-Wz-qvr">
+                                <rect key="frame" x="254" y="362" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="S"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L82-bT-tMU">
+                                <rect key="frame" x="104" y="106" width="89" height="81"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icl-Pm-oz4">
+                                <rect key="frame" x="69" y="177" width="158" height="171"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoF-g6-Z35">
+                                <rect key="frame" x="104" y="337" width="89" height="81"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-OL-z31">
+                                <rect key="frame" x="41" y="456" width="293" height="2"/>
+                                <animations/>
+                            </progressView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.17586016409999999" green="0.17586016409999999" blue="0.17586016409999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="ynb-yE-U1k"/>
+                    <tabBarItem key="tabBarItem" title="Clock" id="ynb-yE-U1k"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="HourButton" destination="Q65-6J-L2A" id="PDN-rs-Jj1"/>
+                        <outlet property="HourLabel" destination="L82-bT-tMU" id="FJU-mM-AmT"/>
+                        <outlet property="MinuteButton" destination="iXk-7p-h9u" id="Zp4-1g-NZB"/>
+                        <outlet property="MinuteLabel" destination="Icl-Pm-oz4" id="eLV-0i-yXo"/>
+                        <outlet property="ProgessBar" destination="sOT-eg-bMj" id="jR2-bZ-62B"/>
+                        <outlet property="SecondButton" destination="agg-Wz-qvr" id="wHg-TO-gTw"/>
+                        <outlet property="SecondLabel" destination="xoF-g6-Z35" id="ivS-nv-4Pv"/>
+                        <outlet property="StartButton" destination="NNQ-aU-cSa" id="Qjh-10-xW7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86g-Dc-liU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926.5" y="17.5"/>
+            <point key="canvasLocation" x="638.5" y="17.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="N6e-oo-gM5">
@@ -70,7 +122,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="eq9-RQ-yKY" kind="relationship" relationship="viewControllers" id="7Gb-bn-Wr9"/>
@@ -79,7 +130,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qto-5G-sOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382.5" y="17.5"/>
+            <point key="canvasLocation" x="-241.5" y="377.5"/>
         </scene>
     </scenes>
 </document>

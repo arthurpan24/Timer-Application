@@ -10,6 +10,15 @@
 
 @interface ClockViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *StartButton;
+@property (weak, nonatomic) IBOutlet UIButton *HourButton;
+@property (weak, nonatomic) IBOutlet UIButton *MinuteButton;
+@property (weak, nonatomic) IBOutlet UIButton *SecondButton;
+@property (strong, nonatomic) IBOutlet UIView *ProgessBar;
+@property (weak, nonatomic) IBOutlet UILabel *HourLabel;
+@property (weak, nonatomic) IBOutlet UILabel *MinuteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *SecondLabel;
+
 @end
 
 @implementation ClockViewController
@@ -23,6 +32,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (instancetype)initWithProgressViewStyle:(UIProgressViewStyle)style{
+//
+//}
 
 /*
 #pragma mark - Navigation
