@@ -10,6 +10,8 @@
 
 @interface ClockViewController : UIViewController
 
+
 -(void)refreshTime;
+-(void)refreshProgressBar;
 
 @end

@@ -151,12 +151,38 @@
                         <viewControllerLayoutGuide type="top" id="D69-ky-JE3"/>
                         <viewControllerLayoutGuide type="bottom" id="nyb-vU-D4x"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sOT-eg-bMj">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="sOT-eg-bMj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z4l-xY-uaS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="he3-uS-Q1z">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-Uk-SrL">
+                                            <rect key="frame" x="179" y="51" width="94" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNe-6a-3pD">
+                                            <rect key="frame" x="100" y="51" width="50" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </view>
+                                <animations/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNQ-aU-cSa">
-                                <rect key="frame" x="0.0" y="505" width="375" height="113"/>
+                                <rect key="frame" x="0.0" y="505" width="375" height="162"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
                                 <state key="normal" title="START"/>
@@ -168,12 +194,18 @@
                                 <rect key="frame" x="254" y="126" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="H"/>
+                                <connections>
+                                    <action selector="hourButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="pzr-zb-BrS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-7p-h9u">
                                 <rect key="frame" x="226" y="226" width="87" height="73"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="minuteButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="Q74-27-j0U"/>
+                                </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-OL-z31">
                                 <rect key="frame" x="41" y="456" width="293" height="2"/>
@@ -183,6 +215,9 @@
                                 <rect key="frame" x="254" y="362" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="secondButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="c8h-sb-9OX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L82-bT-tMU">
                                 <rect key="frame" x="104" y="106" width="89" height="81"/>
@@ -214,19 +249,18 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.17586016409999999" green="0.17586016409999999" blue="0.17586016409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Clock" id="ynb-yE-U1k"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="HourButton" destination="Q65-6J-L2A" id="PDN-rs-Jj1"/>
                         <outlet property="HourLabel" destination="L82-bT-tMU" id="FJU-mM-AmT"/>
                         <outlet property="InfoButton" destination="EkS-Xz-TtW" id="e15-g1-j0O"/>
-                        <outlet property="MinuteButton" destination="iXk-7p-h9u" id="Zp4-1g-NZB"/>
                         <outlet property="MinuteLabel" destination="Icl-Pm-oz4" id="eLV-0i-yXo"/>
-                        <outlet property="SecondButton" destination="agg-Wz-qvr" id="wHg-TO-gTw"/>
                         <outlet property="SecondLabel" destination="xoF-g6-Z35" id="ivS-nv-4Pv"/>
                         <outlet property="StartButton" destination="NNQ-aU-cSa" id="Qjh-10-xW7"/>
+                        <outlet property="alarmTime" destination="2ae-Uk-SrL" id="aam-mn-veh"/>
                         <outlet property="progressBar" destination="7Jh-OL-z31" id="5mJ-7x-zpP"/>
                     </connections>
                 </viewController>
