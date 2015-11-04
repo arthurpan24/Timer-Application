@@ -18,10 +18,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *MinuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *SecondLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *alarmTime;
+@property (weak, nonatomic) IBOutlet UILabel *currentTime;
+@property (weak, nonatomic) IBOutlet UILabel *timeAfter;
+
 @property (weak, nonatomic) IBOutlet UIButton *InfoButton;
 
 @property(nonatomic) float progress;
+@property(nonatomic) BOOL timerRunning;
 
 @property NSTimer* timer;
 @property(nonatomic) int hours;
@@ -43,6 +46,7 @@
     _totalTime = 0;
     [self refreshTime];
     _secondsLeft = _hours = _minutes = _seconds = 0;
+    _timerRunning = false;
     // Do any additional setup after loading the view.
 }
 
@@ -57,19 +61,35 @@
         _hours = _secondsLeft / 3600;
         _minutes = (_secondsLeft % 3600) / 60;
         _seconds = (_secondsLeft %3600) % 60;
-        _alarmTime.text = [NSString stringWithFormat:@"%02d:%02d:%02d", _hours, _minutes, _seconds];
+        
+        _HourLabel.text = [NSString stringWithFormat:@"%02d", _hours];
+        _MinuteLabel.text = [NSString stringWithFormat:@"%02d", _minutes];
+        _SecondLabel.text = [NSString stringWithFormat:@"%02d", _seconds];
+
+        
     } else {
         _secondsLeft = 0;
     }
 }
 -(void)refreshProgressBar {
-    _progress = (float)(_totalTime - _secondsLeft)/(float)_totalTime;
-    [_progressBar setProgress:_progress animated:YES];
-    [self performSelector:(@selector(refreshProgressBar)) withObject:self afterDelay:1.0];
+    if (_timerRunning) {
+        _progress = (float)(_totalTime - _secondsLeft)/(float)_totalTime;
+        [_progressBar setProgress:_progress animated:YES];
+        [self performSelector:(@selector(refreshProgressBar)) withObject:self afterDelay:1.0];
+    }
+    else {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(refreshProgressBar) object:nil];
+    }
 
 }
 -(void)countdownTimer {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+    if (_timerRunning){
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+    }
+    else{
+        [_timer invalidate];
+        _timer = nil;
+    }
 }
 
 - (IBAction)hourButtonPressed:(id)sender {
@@ -85,26 +105,29 @@
 }
 
 - (IBAction)startButtonPressed:(id)sender {
-    _totalTime = _secondsLeft;
-    [self countdownTimer];
-    [self refreshProgressBar];
+    if (!_timerRunning){
+         _timerRunning = true;
+        _totalTime = _secondsLeft;
+        [self countdownTimer];
+        [self refreshProgressBar];
+        [_StartButton setTitle:@"STOP" forState:UIControlStateNormal];
+    }
+    else {
+        _timerRunning = false;
+        [_StartButton setTitle:@"START" forState:UIControlStateNormal];
+        [self countdownTimer];
+        [self refreshProgressBar];
+    }
+        
     NSLog(@"Start Button Pressed");
 }
 
 -(void)refreshTime {
-    NSDateFormatter *hourFormatter=[[NSDateFormatter alloc] init];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    NSDateFormatter *minuteFormatter=[[NSDateFormatter alloc] init];
-    NSDateFormatter *secondFormatter=[[NSDateFormatter alloc] init];
     
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    [hourFormatter setDateFormat:@"hh"];
-    [minuteFormatter setDateFormat:@"mm"];
-    [secondFormatter setDateFormat:@"ss"];
-    
-    _HourLabel.text = [hourFormatter stringFromDate:[NSDate date]];
-    _MinuteLabel.text = [minuteFormatter stringFromDate:[NSDate date]];
-    _SecondLabel.text = [secondFormatter stringFromDate:[NSDate date]];
+    [dateFormatter setDateFormat:@"hh:mm:ss"];
+   
+    _currentTime.text = [dateFormatter stringFromDate:[NSDate date]];
 
     [self performSelector:(@selector(refreshTime)) withObject:self afterDelay:1.0];
 }

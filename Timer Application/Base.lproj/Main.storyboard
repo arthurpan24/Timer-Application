@@ -168,8 +168,22 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNe-6a-3pD">
-                                            <rect key="frame" x="100" y="51" width="50" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time After:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ak7-uX-szD">
+                                            <rect key="frame" x="50" y="80" width="85" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uu0-tL-GTC">
+                                            <rect key="frame" x="179" y="80" width="101" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNe-6a-3pD">
+                                            <rect key="frame" x="50" y="51" width="43" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -207,7 +221,7 @@
                                     <action selector="minuteButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="Q74-27-j0U"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-OL-z31">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-OL-z31">
                                 <rect key="frame" x="41" y="456" width="293" height="2"/>
                                 <animations/>
                             </progressView>
@@ -260,8 +274,9 @@
                         <outlet property="MinuteLabel" destination="Icl-Pm-oz4" id="eLV-0i-yXo"/>
                         <outlet property="SecondLabel" destination="xoF-g6-Z35" id="ivS-nv-4Pv"/>
                         <outlet property="StartButton" destination="NNQ-aU-cSa" id="Qjh-10-xW7"/>
-                        <outlet property="alarmTime" destination="2ae-Uk-SrL" id="aam-mn-veh"/>
+                        <outlet property="currentTime" destination="2ae-Uk-SrL" id="cON-CJ-nyt"/>
                         <outlet property="progressBar" destination="7Jh-OL-z31" id="5mJ-7x-zpP"/>
+                        <outlet property="timeAfter" destination="Uu0-tL-GTC" id="1P3-RI-DMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86g-Dc-liU" userLabel="First Responder" sceneMemberID="firstResponder"/>
