@@ -160,6 +160,9 @@
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
                                 <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="aEZ-iK-PEX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q65-6J-L2A">
                                 <rect key="frame" x="254" y="126" width="30" height="30"/>
@@ -221,10 +224,10 @@
                         <outlet property="InfoButton" destination="EkS-Xz-TtW" id="e15-g1-j0O"/>
                         <outlet property="MinuteButton" destination="iXk-7p-h9u" id="Zp4-1g-NZB"/>
                         <outlet property="MinuteLabel" destination="Icl-Pm-oz4" id="eLV-0i-yXo"/>
-                        <outlet property="ProgessBar" destination="sOT-eg-bMj" id="jR2-bZ-62B"/>
                         <outlet property="SecondButton" destination="agg-Wz-qvr" id="wHg-TO-gTw"/>
                         <outlet property="SecondLabel" destination="xoF-g6-Z35" id="ivS-nv-4Pv"/>
                         <outlet property="StartButton" destination="NNQ-aU-cSa" id="Qjh-10-xW7"/>
+                        <outlet property="progressBar" destination="7Jh-OL-z31" id="5mJ-7x-zpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86g-Dc-liU" userLabel="First Responder" sceneMemberID="firstResponder"/>

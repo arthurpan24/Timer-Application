@@ -10,4 +10,6 @@
 
 @interface ClockViewController : UIViewController
 
+-(void)refreshTime;
+
 @end
