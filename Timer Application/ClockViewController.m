@@ -58,7 +58,6 @@
 - (void)updateCounter:(NSTimer *)theTimer {
     if(_secondsLeft > 0 ) {
         _secondsLeft -- ;
-        _totalTime ++;
         _hours = _secondsLeft / 3600;
         _minutes = (_secondsLeft % 3600) / 60;
         _seconds = (_secondsLeft %3600) % 60;
@@ -87,6 +86,7 @@
     if (_timerRunning){
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
     }
+
     else{
         [_timer invalidate];
         _timer = nil;
@@ -111,7 +111,7 @@
 
 - (IBAction)secondButtonPressed:(id)sender {
     if (!_timerRunning){
-        _secondsLeft += 30;
+        _secondsLeft += 5;
         [self refreshAlarmTime];
         [self refreshTimeAfter];
     }
