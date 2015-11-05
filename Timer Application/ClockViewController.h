@@ -13,5 +13,5 @@
 
 -(void)refreshTime;
 -(void)refreshProgressBar;
-
+-(void)refreshAlarmTime;
 @end

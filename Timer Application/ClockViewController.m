@@ -93,17 +93,33 @@
 }
 
 - (IBAction)hourButtonPressed:(id)sender {
-    _secondsLeft += 3600;
+    if (!_timerRunning){
+        _secondsLeft += 3600;
+        [self refreshAlarmTime];
+    }
 }
 
 - (IBAction)minuteButtonPressed:(id)sender {
-    _secondsLeft += 60*5;
+    if (!_timerRunning){
+        _secondsLeft += 60*5;
+        [self refreshAlarmTime];
+    }
 }
 
 - (IBAction)secondButtonPressed:(id)sender {
-    _secondsLeft += 30;
+    if (!_timerRunning){
+        _secondsLeft += 30;
+        [self refreshAlarmTime];
+    }
 }
-
+-(void)refreshAlarmTime {
+    _hours = _secondsLeft/3600;
+    _minutes = (_secondsLeft % 3600) / 60;
+    _seconds = (_secondsLeft %3600) % 60;
+    _HourLabel.text = [NSString stringWithFormat:@"%02d", _hours];
+    _MinuteLabel.text = [NSString stringWithFormat:@"%02d", _minutes];
+    _SecondLabel.text = [NSString stringWithFormat:@"%02d", _seconds];
+}
 - (IBAction)startButtonPressed:(id)sender {
     if (!_timerRunning){
          _timerRunning = true;
