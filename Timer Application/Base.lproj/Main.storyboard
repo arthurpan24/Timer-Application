@@ -261,6 +261,14 @@
                                     <action selector="badgeButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="4bA-5C-qiM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msT-7p-vd1">
+                                <rect key="frame" x="309" y="571" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="RESET"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="xlL-BG-y7M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

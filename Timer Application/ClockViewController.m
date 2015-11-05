@@ -120,6 +120,19 @@
     _MinuteLabel.text = [NSString stringWithFormat:@"%02d", _minutes];
     _SecondLabel.text = [NSString stringWithFormat:@"%02d", _seconds];
 }
+
+- (IBAction)resetButtonPressed:(id)sender {
+    _hours = 0;
+    _minutes = 0;
+    _seconds = 0;
+    _secondsLeft = 0;
+    _timerRunning = false;
+    [self countdownTimer];
+    [self refreshProgressBar];
+    [self refreshAlarmTime];
+    [_StartButton setTitle:@"START" forState:UIControlStateNormal];
+}
+
 - (IBAction)startButtonPressed:(id)sender {
     if (!_timerRunning){
          _timerRunning = true;
