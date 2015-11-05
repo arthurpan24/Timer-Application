@@ -47,6 +47,7 @@
     [self refreshTime];
     _secondsLeft = _hours = _minutes = _seconds = 0;
     _timerRunning = false;
+    [self refreshTimeAfter];
     // Do any additional setup after loading the view.
 }
 
@@ -96,6 +97,7 @@
     if (!_timerRunning){
         _secondsLeft += 3600;
         [self refreshAlarmTime];
+        [self refreshTimeAfter];
     }
 }
 
@@ -103,6 +105,7 @@
     if (!_timerRunning){
         _secondsLeft += 60*5;
         [self refreshAlarmTime];
+        [self refreshTimeAfter];
     }
 }
 
@@ -110,6 +113,7 @@
     if (!_timerRunning){
         _secondsLeft += 30;
         [self refreshAlarmTime];
+        [self refreshTimeAfter];
     }
 }
 -(void)refreshAlarmTime {
@@ -130,6 +134,12 @@
     [self countdownTimer];
     [self refreshProgressBar];
     [self refreshAlarmTime];
+    [self refreshTimeAfter];
+    
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm:ss"];
+    _currentTime.text = [dateFormatter stringFromDate:[NSDate date]];
+
     [_StartButton setTitle:@"START" forState:UIControlStateNormal];
 }
 
@@ -146,6 +156,7 @@
         [_StartButton setTitle:@"START" forState:UIControlStateNormal];
         [self countdownTimer];
         [self refreshProgressBar];
+        [self refreshTimeAfter];
     }
         
     NSLog(@"Start Button Pressed");
@@ -158,8 +169,25 @@
    
     _currentTime.text = [dateFormatter stringFromDate:[NSDate date]];
 
-    [self performSelector:(@selector(refreshTime)) withObject:self afterDelay:1.0];
+    [self performSelector:(@selector(refreshTime)) withObject:self afterDelay:0.0];
 }
+
+-(void)refreshTimeAfter {
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm:ss"];
+    NSDate *delayDate = [[NSDate alloc]init];
+    delayDate = [NSDate dateWithTimeIntervalSinceNow:_secondsLeft];
+    _timeAfter.text = [dateFormatter stringFromDate:delayDate];
+
+    if (!_timerRunning){
+        [self performSelector:(@selector(refreshTimeAfter)) withObject:self afterDelay:0.0];
+
+    }
+    else {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(refreshTimeAfter) object:nil];
+    }
+}
+
 
 /*
 #pragma mark - Navigation
