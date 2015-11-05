@@ -15,5 +15,8 @@
 -(void)refreshProgressBar;
 -(void)refreshAlarmTime;
 -(void)refreshTimeAfter;
+-(void)changeToStop;
+-(void)changeToStart;
+-(void)changeToWarning; //IMPLEMENT THIS
 
 @end

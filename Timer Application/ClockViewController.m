@@ -55,7 +55,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (void)updateCounter:(NSTimer *)theTimer {
+    if (_secondsLeft == 0){
+        self.view.backgroundColor = [UIColor redColor];
+        [self changeToStop];
+    }
     if(_secondsLeft > 0 ) {
         _secondsLeft -- ;
         _hours = _secondsLeft / 3600;
@@ -131,35 +136,41 @@
     _seconds = 0;
     _secondsLeft = 0;
     _timerRunning = false;
+    
     [self countdownTimer];
     [self refreshProgressBar];
     [self refreshAlarmTime];
     [self refreshTimeAfter];
+    self.view.backgroundColor = [UIColor blueColor]; //CHANGE THIS LATER
     
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm:ss"];
-    _currentTime.text = [dateFormatter stringFromDate:[NSDate date]];
-
     [_StartButton setTitle:@"START" forState:UIControlStateNormal];
 }
 
 - (IBAction)startButtonPressed:(id)sender {
-    if (!_timerRunning){
-         _timerRunning = true;
-        _totalTime = _secondsLeft;
-        [self countdownTimer];
-        [self refreshProgressBar];
-        [_StartButton setTitle:@"STOP" forState:UIControlStateNormal];
+    if (!_timerRunning && _secondsLeft == 0){
+        //do nothing
+    }
+    else if (!_timerRunning){
+        [self changeToStart];
     }
     else {
-        _timerRunning = false;
-        [_StartButton setTitle:@"START" forState:UIControlStateNormal];
-        [self countdownTimer];
-        [self refreshProgressBar];
-        [self refreshTimeAfter];
+        [self changeToStop];
     }
-        
-    NSLog(@"Start Button Pressed");
+    
+}
+-(void)changeToStart {
+    _timerRunning = true;
+    _totalTime = _secondsLeft;
+    [self countdownTimer];
+    [self refreshProgressBar];
+    [_StartButton setTitle:@"STOP" forState:UIControlStateNormal];
+}
+-(void)changeToStop {
+    _timerRunning = false;
+    [_StartButton setTitle:@"START" forState:UIControlStateNormal];
+    [self countdownTimer];
+    [self refreshProgressBar];
+    [self refreshTimeAfter];
 }
 
 -(void)refreshTime {
