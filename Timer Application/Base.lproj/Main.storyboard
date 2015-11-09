@@ -54,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q65-6J-L2A">
-                                <rect key="frame" x="257" y="167" width="30" height="30"/>
+                                <rect key="frame" x="49" y="235" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="H"/>
                                 <connections>
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-OL-z31">
-                                <rect key="frame" x="41" y="456" width="293" height="2"/>
+                                <rect key="frame" x="41" y="497" width="293" height="2"/>
                                 <animations/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ae-Uk-SrL">
@@ -94,7 +94,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNQ-aU-cSa">
-                                <rect key="frame" x="0.0" y="472" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="497" width="375" height="162"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="64"/>
                                 <state key="normal" title="START"/>
@@ -102,30 +102,22 @@
                                     <action selector="startButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="aEZ-iK-PEX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msT-7p-vd1">
-                                <rect key="frame" x="304" y="538" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="RESET"/>
-                                <connections>
-                                    <action selector="resetButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="xlL-BG-y7M"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L82-bT-tMU">
-                                <rect key="frame" x="126" y="141" width="89" height="81"/>
+                                <rect key="frame" x="20" y="142" width="89" height="81"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icl-Pm-oz4">
-                                <rect key="frame" x="91" y="190" width="158" height="171"/>
+                                <rect key="frame" x="108" y="97" width="158" height="171"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="118"/>
                                 <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-7p-h9u">
-                                <rect key="frame" x="229" y="242" width="87" height="73"/>
+                                <rect key="frame" x="144" y="228" width="87" height="73"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="M"/>
@@ -133,8 +125,15 @@
                                     <action selector="minuteButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="Q74-27-j0U"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoF-g6-Z35">
+                                <rect key="frame" x="266" y="142" width="89" height="81"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agg-Wz-qvr">
-                                <rect key="frame" x="257" y="355" width="30" height="30"/>
+                                <rect key="frame" x="295" y="235" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="S"/>
                                 <connections>
@@ -148,15 +147,21 @@
                                     <action selector="badgeButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="4bA-5C-qiM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoF-g6-Z35">
-                                <rect key="frame" x="126" y="329" width="89" height="81"/>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ao0-Ig-ceK">
+                                <rect key="frame" x="0.0" y="283" width="375" height="216"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" red="0.28681221210000002" green="0.81092609240000002" blue="0.9252699607" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msT-7p-vd1">
+                                <rect key="frame" x="304" y="576" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="RESET"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="eq9-RQ-yKY" eventType="touchUpInside" id="xlL-BG-y7M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
+                        <color key="backgroundColor" red="0.4381465517" green="0.4004310345" blue="0.85622306029999995" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -166,6 +171,7 @@
                         <outlet property="MinuteLabel" destination="Icl-Pm-oz4" id="eLV-0i-yXo"/>
                         <outlet property="SecondLabel" destination="xoF-g6-Z35" id="ivS-nv-4Pv"/>
                         <outlet property="StartButton" destination="NNQ-aU-cSa" id="Qjh-10-xW7"/>
+                        <outlet property="alarmTimePicker" destination="ao0-Ig-ceK" id="WH2-JA-Mmu"/>
                         <outlet property="currentTime" destination="2ae-Uk-SrL" id="cON-CJ-nyt"/>
                         <outlet property="progressBar" destination="7Jh-OL-z31" id="5mJ-7x-zpP"/>
                         <outlet property="timeAfter" destination="Uu0-tL-GTC" id="1P3-RI-DMb"/>
@@ -173,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86g-Dc-liU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069.5" y="743.5"/>
+            <point key="canvasLocation" x="1065.5" y="757.5"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="F7w-Uf-DrX">

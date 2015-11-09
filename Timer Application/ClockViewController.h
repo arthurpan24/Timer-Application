@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClockViewController : UIViewController
+@interface ClockViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property(nonatomic) int totalTime;
 
