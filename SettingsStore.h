@@ -10,4 +10,13 @@
 
 @interface SettingsStore : NSObject
 
++(instancetype)sharedStore;
+
+@property(nonatomic) int hours;
+@property(nonatomic) int minutes;
+@property(nonatomic) int seconds;
+@property(nonatomic) int secondsLeft;
+
+@property(nonatomic) int warningTime; //this is in minutes
+
 @end

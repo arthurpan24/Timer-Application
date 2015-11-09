@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4069A8581BE89243007C7E52 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069A8571BE89243007C7E52 /* ClockViewController.m */; };
 		4069A85B1BE8924C007C7E52 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069A85A1BE8924C007C7E52 /* SettingsViewController.m */; };
+		408987C21BF0064E00F6D64A /* TemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 408987C11BF0064E00F6D64A /* TemplateView.m */; };
 		40A2ED091BE88A8C001FA5FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A2ED081BE88A8C001FA5FB /* main.m */; };
 		40A2ED0C1BE88A8C001FA5FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A2ED0B1BE88A8C001FA5FB /* AppDelegate.m */; };
 		40A2ED121BE88A8C001FA5FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A2ED101BE88A8C001FA5FB /* Main.storyboard */; };
@@ -16,8 +17,9 @@
 		40A2ED171BE88A8C001FA5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A2ED151BE88A8C001FA5FB /* LaunchScreen.storyboard */; };
 		40A2ED221BE88A8C001FA5FB /* Timer_ApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A2ED211BE88A8C001FA5FB /* Timer_ApplicationTests.m */; };
 		40A2ED2D1BE88A8C001FA5FB /* Timer_ApplicationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A2ED2C1BE88A8C001FA5FB /* Timer_ApplicationUITests.m */; };
+		40BCA9571BEB31F500344747 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BCA9561BEB31F500344747 /* RootViewController.m */; };
+		40BCA95A1BEB344400344747 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BCA9591BEB344400344747 /* PageViewController.m */; };
 		40CAB0D21BE8A30400EE02C4 /* SettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CAB0D11BE8A30400EE02C4 /* SettingsStore.m */; };
-		40CAB0D71BE8A89600EE02C4 /* TimePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CAB0D61BE8A89600EE02C4 /* TimePickerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		4069A8571BE89243007C7E52 /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClockViewController.m; path = "Timer Application/ClockViewController.m"; sourceTree = "<group>"; };
 		4069A8591BE8924C007C7E52 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "Timer Application/SettingsViewController.h"; sourceTree = "<group>"; };
 		4069A85A1BE8924C007C7E52 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "Timer Application/SettingsViewController.m"; sourceTree = "<group>"; };
+		408987C01BF0064E00F6D64A /* TemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateView.h; path = "Timer Application/TemplateView.h"; sourceTree = "<group>"; };
+		408987C11BF0064E00F6D64A /* TemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateView.m; path = "Timer Application/TemplateView.m"; sourceTree = "<group>"; };
 		40A2ED041BE88A8C001FA5FB /* Timer Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timer Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2ED081BE88A8C001FA5FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40A2ED0A1BE88A8C001FA5FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,10 +60,12 @@
 		40A2ED281BE88A8C001FA5FB /* Timer ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Timer ApplicationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2ED2C1BE88A8C001FA5FB /* Timer_ApplicationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Timer_ApplicationUITests.m; sourceTree = "<group>"; };
 		40A2ED2E1BE88A8C001FA5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40BCA9551BEB31F500344747 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		40BCA9561BEB31F500344747 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		40BCA9581BEB344400344747 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		40BCA9591BEB344400344747 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		40CAB0D01BE8A30400EE02C4 /* SettingsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsStore.h; sourceTree = "<group>"; };
 		40CAB0D11BE8A30400EE02C4 /* SettingsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsStore.m; sourceTree = "<group>"; };
-		40CAB0D51BE8A89600EE02C4 /* TimePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerCell.h; sourceTree = "<group>"; };
-		40CAB0D61BE8A89600EE02C4 /* TimePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,10 @@
 		4069A85C1BE8946F007C7E52 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				40BCA9551BEB31F500344747 /* RootViewController.h */,
+				40BCA9561BEB31F500344747 /* RootViewController.m */,
+				40BCA9581BEB344400344747 /* PageViewController.h */,
+				40BCA9591BEB344400344747 /* PageViewController.m */,
 				4069A8561BE89243007C7E52 /* ClockViewController.h */,
 				4069A8571BE89243007C7E52 /* ClockViewController.m */,
 				4069A8591BE8924C007C7E52 /* SettingsViewController.h */,
@@ -166,6 +176,8 @@
 			children = (
 				40CAB0D01BE8A30400EE02C4 /* SettingsStore.h */,
 				40CAB0D11BE8A30400EE02C4 /* SettingsStore.m */,
+				408987C01BF0064E00F6D64A /* TemplateView.h */,
+				408987C11BF0064E00F6D64A /* TemplateView.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -173,8 +185,6 @@
 		40CAB0D41BE8A85B00EE02C4 /* Setting Cells */ = {
 			isa = PBXGroup;
 			children = (
-				40CAB0D51BE8A89600EE02C4 /* TimePickerCell.h */,
-				40CAB0D61BE8A89600EE02C4 /* TimePickerCell.m */,
 			);
 			name = "Setting Cells";
 			sourceTree = "<group>";
@@ -309,8 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CAB0D71BE8A89600EE02C4 /* TimePickerCell.m in Sources */,
+				408987C21BF0064E00F6D64A /* TemplateView.m in Sources */,
 				40CAB0D21BE8A30400EE02C4 /* SettingsStore.m in Sources */,
+				40BCA9571BEB31F500344747 /* RootViewController.m in Sources */,
+				40BCA95A1BEB344400344747 /* PageViewController.m in Sources */,
 				40A2ED0C1BE88A8C001FA5FB /* AppDelegate.m in Sources */,
 				40A2ED091BE88A8C001FA5FB /* main.m in Sources */,
 				4069A85B1BE8924C007C7E52 /* SettingsViewController.m in Sources */,

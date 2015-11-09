@@ -7,15 +7,21 @@
 //
 
 #import "SettingsViewController.h"
+#import "ClockViewController.h"
+#import "SettingsStore.h"
 
 @interface SettingsViewController ()
-
+@property (weak, nonatomic) IBOutlet UIPickerView *timeDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *testTime;
+@property(nonatomic, readonly) NSInteger numberOfComponents;
 @end
 
 @implementation SettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _testTime.text = [NSString stringWithFormat:@"%d", [SettingsStore sharedStore].seconds];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -23,6 +29,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

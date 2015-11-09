@@ -7,6 +7,11 @@
 //
 
 #import "ClockViewController.h"
+#import "RootViewController.h"
+#import "TemplateView.h"
+#import "SettingsStore.h"
+
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ClockViewController ()
 
@@ -17,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *HourLabel;
 @property (weak, nonatomic) IBOutlet UILabel *MinuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *SecondLabel;
-
+@property NSDateFormatter *dateFormatter;
 @property (weak, nonatomic) IBOutlet UILabel *currentTime;
 @property (weak, nonatomic) IBOutlet UILabel *timeAfter;
 
@@ -25,29 +30,27 @@
 
 @property(nonatomic) float progress;
 @property(nonatomic) BOOL timerRunning;
-
 @property NSTimer* timer;
-@property(nonatomic) int hours;
-@property(nonatomic) int minutes;
-@property(nonatomic) int seconds;
-
-@property(nonatomic) int secondsLeft;
-@property(nonatomic) int totalTime;
-
-@property(nonatomic) UIProgressViewStyle progressViewStyle;
 
 @end
 
 @implementation ClockViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _dateFormatter=[[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:@"hh:mm:ss"];
     _progress = 0.00;
     _totalTime = 0;
     [self refreshTime];
-    _secondsLeft = _hours = _minutes = _seconds = 0;
+    [SettingsStore sharedStore];
     _timerRunning = false;
     [self refreshTimeAfter];
+    
+    NSLog(@"Enter");
+    [TemplateView backgroundStatus].backgroundColor = [UIColor greenColor]; //doesn't do jack
+    NSLog(@"Reached here");
     // Do any additional setup after loading the view.
 }
 
@@ -57,28 +60,20 @@
 }
 
 - (void)updateCounter:(NSTimer *)theTimer {
-    if (_secondsLeft == 0){
+    if ([SettingsStore sharedStore].secondsLeft == 0){
         self.view.backgroundColor = [UIColor redColor];
         [self changeToStop];
     }
-    if(_secondsLeft > 0 ) {
-        _secondsLeft -- ;
-        _hours = _secondsLeft / 3600;
-        _minutes = (_secondsLeft % 3600) / 60;
-        _seconds = (_secondsLeft %3600) % 60;
-        
-        _HourLabel.text = [NSString stringWithFormat:@"%02d", _hours];
-        _MinuteLabel.text = [NSString stringWithFormat:@"%02d", _minutes];
-        _SecondLabel.text = [NSString stringWithFormat:@"%02d", _seconds];
-
-        
+    if([SettingsStore sharedStore].secondsLeft > 0 ) {
+        [SettingsStore sharedStore].secondsLeft -- ;
+        [self refreshAlarmTime];
     } else {
-        _secondsLeft = 0;
+        [SettingsStore sharedStore].secondsLeft = 0;
     }
 }
 -(void)refreshProgressBar {
     if (_timerRunning) {
-        _progress = (float)(_totalTime - _secondsLeft)/(float)_totalTime;
+        _progress = (float)(_totalTime - [SettingsStore sharedStore].secondsLeft)/(float)_totalTime;
         [_progressBar setProgress:_progress animated:YES];
         [self performSelector:(@selector(refreshProgressBar)) withObject:self afterDelay:1.0];
     }
@@ -100,7 +95,7 @@
 
 - (IBAction)hourButtonPressed:(id)sender {
     if (!_timerRunning){
-        _secondsLeft += 3600;
+        [SettingsStore sharedStore].secondsLeft += 3600;
         [self refreshAlarmTime];
         [self refreshTimeAfter];
     }
@@ -108,7 +103,7 @@
 
 - (IBAction)minuteButtonPressed:(id)sender {
     if (!_timerRunning){
-        _secondsLeft += 60*5;
+        [SettingsStore sharedStore].secondsLeft += 60*5;
         [self refreshAlarmTime];
         [self refreshTimeAfter];
     }
@@ -116,41 +111,43 @@
 
 - (IBAction)secondButtonPressed:(id)sender {
     if (!_timerRunning){
-        _secondsLeft += 5;
+        [SettingsStore sharedStore].secondsLeft += 5;
         [self refreshAlarmTime];
         [self refreshTimeAfter];
     }
 }
 -(void)refreshAlarmTime {
-    _hours = _secondsLeft/3600;
-    _minutes = (_secondsLeft % 3600) / 60;
-    _seconds = (_secondsLeft %3600) % 60;
-    _HourLabel.text = [NSString stringWithFormat:@"%02d", _hours];
-    _MinuteLabel.text = [NSString stringWithFormat:@"%02d", _minutes];
-    _SecondLabel.text = [NSString stringWithFormat:@"%02d", _seconds];
+    [SettingsStore sharedStore].hours = [SettingsStore sharedStore].secondsLeft/3600;
+    [SettingsStore sharedStore].minutes = ([SettingsStore sharedStore].secondsLeft % 3600) / 60;
+    [SettingsStore sharedStore].seconds = ([SettingsStore sharedStore].secondsLeft %3600) % 60;
+    _HourLabel.text = [NSString stringWithFormat:@"%02d", [SettingsStore sharedStore].hours];
+    _MinuteLabel.text = [NSString stringWithFormat:@"%02d", [SettingsStore sharedStore].minutes];
+    _SecondLabel.text = [NSString stringWithFormat:@"%02d", [SettingsStore sharedStore].seconds];
 }
 
 - (IBAction)resetButtonPressed:(id)sender {
-    _hours = 0;
-    _minutes = 0;
-    _seconds = 0;
-    _secondsLeft = 0;
+    [SettingsStore sharedStore].hours = 0;
+    [SettingsStore sharedStore].minutes = 0;
+    [SettingsStore sharedStore].seconds = 0;
+    [SettingsStore sharedStore].secondsLeft = 0;
     _timerRunning = false;
     
     [self countdownTimer];
     [self refreshProgressBar];
     [self refreshAlarmTime];
     [self refreshTimeAfter];
-    self.view.backgroundColor = [UIColor blueColor]; //CHANGE THIS LATER
+    //[[RootViewController backgroundStatus]setBackgroundColor:[UIColor purpleColor]];
     
     [_StartButton setTitle:@"START" forState:UIControlStateNormal];
 }
 
 - (IBAction)startButtonPressed:(id)sender {
-    if (!_timerRunning && _secondsLeft == 0){
+    if (!_timerRunning && [SettingsStore sharedStore].secondsLeft == 0){
+        self.view.backgroundColor = [UIColor blueColor];
         //do nothing
     }
     else if (!_timerRunning){
+        self.view.backgroundColor = [UIColor blueColor];
         [self changeToStart];
     }
     else {
@@ -160,7 +157,7 @@
 }
 -(void)changeToStart {
     _timerRunning = true;
-    _totalTime = _secondsLeft;
+    _totalTime = [SettingsStore sharedStore].secondsLeft;
     [self countdownTimer];
     [self refreshProgressBar];
     [_StartButton setTitle:@"STOP" forState:UIControlStateNormal];
@@ -174,41 +171,24 @@
 }
 
 -(void)refreshTime {
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"hh:mm:ss"];
-   
-    _currentTime.text = [dateFormatter stringFromDate:[NSDate date]];
+    _currentTime.text = [_dateFormatter stringFromDate:[NSDate date]];
 
-    [self performSelector:(@selector(refreshTime)) withObject:self afterDelay:0.0];
+    [self performSelector:(@selector(refreshTime)) withObject:self afterDelay:0.0]; //MUST FIX
 }
 
 -(void)refreshTimeAfter {
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm:ss"];
     NSDate *delayDate = [[NSDate alloc]init];
-    delayDate = [NSDate dateWithTimeIntervalSinceNow:_secondsLeft];
-    _timeAfter.text = [dateFormatter stringFromDate:delayDate];
+    delayDate = [NSDate dateWithTimeIntervalSinceNow:[SettingsStore sharedStore].secondsLeft];
+    _timeAfter.text = [_dateFormatter stringFromDate:delayDate];
 
     if (!_timerRunning){
-        [self performSelector:(@selector(refreshTimeAfter)) withObject:self afterDelay:0.0];
+        [self performSelector:(@selector(refreshTimeAfter)) withObject:self afterDelay:0.0]; //MUST FIX
 
     }
     else {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(refreshTimeAfter) object:nil];
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)badgeButtonPressed:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/arthurpan24/Timer-Application"]];

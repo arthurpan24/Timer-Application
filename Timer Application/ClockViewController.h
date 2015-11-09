@@ -10,6 +10,7 @@
 
 @interface ClockViewController : UIViewController
 
+@property(nonatomic) int totalTime;
 
 -(void)refreshTime;
 -(void)refreshProgressBar;
@@ -17,6 +18,6 @@
 -(void)refreshTimeAfter;
 -(void)changeToStop;
 -(void)changeToStart;
--(void)changeToWarning; //IMPLEMENT THIS
+//-(void)changeToWarning; //IMPLEMENT THIS
 
 @end
